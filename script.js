@@ -29,25 +29,26 @@ let lives = 5;
 let over = false;
 let timer = 0;
 
-// Load images
+// Load images and media
 const backgroundImage = new Image();
 backgroundImage.src = "images/background2.png";
 const biscuitImage = new Image();
 biscuitImage.src = "images/biscuit50.png";
 const dogImage = new Image();
 dogImage.src = "images/bablo_center.png";
-
 const carrotImage = new Image();
 carrotImage.src = "images/carrot50.png";
-
 const oliveImage = new Image();
 oliveImage.src = "images/olive50.png";
-
 const sausageImage = new Image();
 sausageImage.src = "images/sausage50.png";
+const backgroundMusic = new Audio("music/biscuithunt.mp3");
+const barkSound = new Audio("sounds/bark.wav");
+const wrongSound = new Audio("sounds/wrong.wav");
+const lostSound = new Audio("sounds/lost.wav");
+const overSound = new Audio("sounds/gameover.wav");
 
-
-// Character position
+// Character position at start
 let dog = {
     x: canvas.width / 2 -25, y: canvas.height -100, width: 50, height: 50
 };
@@ -56,26 +57,18 @@ let dog = {
 function draw() {
     ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
     ctx.drawImage(dogImage, dog.x, dog.y, dog.width, dog.height);
-    
     biscuits.forEach(biscuit => {
         ctx.drawImage(biscuitImage, biscuit.x, biscuit.y, 50,50);
     });
-
-
     carrots.forEach(carrot => {
         ctx.drawImage(carrotImage, carrot.x, carrot.y, 50,50);
     });
-
     olives.forEach(olive => {
         ctx.drawImage(oliveImage, olive.x, olive.y, 50,50);
     });
-
-    
     sausages.forEach(sausage => {
         ctx.drawImage(sausageImage, sausage.x, sausage.y, 50,50);
     });
-
-
     ctx.fillStyle = "white";
     ctx.font = "30px Arial";
     ctx.fillText("Score: " + score, 10, 40);
@@ -86,8 +79,6 @@ function draw() {
 function spawnBiscuit () {
     biscuits.push({ x: Math.random() * canvas.width - 50, y: 0});
 };
-
-
 
 function spawnCarrot () {
     carrots.push({ x: Math.random() * canvas.width - 50, y: 0});
@@ -100,8 +91,6 @@ function spawnOlive () {
 function spawnSausage () {
     sausages.push({ x: Math.random() * canvas.width - 50, y: 0});
 };
-
-
 
 function incTimer () {
     timer += 1
@@ -161,41 +150,41 @@ function update() {
     if (moveDown && dog.y < canvas.height - dog.height) {
         dog.y += velocity;
     }
-
     biscuits.forEach(biscuit => {
         biscuit.y += biscuitVelocity;
         if (isColliding(dog, biscuit)) {
             biscuits = biscuits.filter(b => b !== biscuit);
             score++;
+            barkSound.play();
             };
         if (biscuit.y > canvas.height) {
             biscuits = biscuits.filter(b => b !== biscuit);
             lives--;
+            lostSound.play();
         };
     });
-
     carrots.forEach(carrot => {
         carrot.y+= carrotVelocity;
         if (isColliding(dog, carrot)) {
             carrots = carrots.filter(b => b !== carrot);
             score -= 1;
+            wrongSound.play();
             };
         if (carrot.y > canvas.height) {
             carrots = carrots.filter(b => b !== carrot);
         };
     })
-
     olives.forEach(olive => {
         olive.y+= oliveVelocity;
         if (isColliding(dog, olive)) {
             olives = olives.filter(b => b !== olive);
             score -= 2;
+            wrongSound.play();
             };
         if (olive.y > canvas.height) {
             olives = olives.filter(b => b !== olive);
         };
     })
-
     sausages.forEach(sausage => {
         sausage.y+= sausageVelocity;
         if (sausage.y > canvas.height) {
@@ -204,23 +193,29 @@ function update() {
         if (isColliding(dog, sausage)) {
             sausages = sausages.filter(b => b !== sausage);
             over= true;
+            backgroundMusic.autoplay = false;
+            overSound.play();
             };
     })
 
     if (lives < 1){
         over= true;
+        backgroundMusic.autoplay = false;
+        overSound.play();
+        
     }
 };
 
 function gameLoop() {
     if (!over) {
+        backgroundMusic.autoplay = true;
+        backgroundMusic.loop = true;
         update();
         draw();
         requestAnimationFrame(gameLoop);
     }
 };
 
-// backgroundImage.onload = function() 
 gameLoop();
 setInterval(spawnBiscuit, 1000);
 setInterval(spawnCarrot, 3000);
