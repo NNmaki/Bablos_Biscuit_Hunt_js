@@ -1,4 +1,5 @@
 
+// Varmuuskopio toimivasta klo 10.29
 
 const canvas = document.getElementById("pelikentta");
 const ctx = canvas.getContext("2d");
@@ -39,50 +40,16 @@ function draw() {
 
 // Check if the button IS pressed
 document.addEventListener("keydown", function(event) {
-    if (event.key === "ArrowLeft") {
-        moveLeft= true;
-    }
-    if (event.key === "ArrowRight") {
-        moveRight= true;
-    }
-    if (event.key === "ArrowUp") {
-        moveUp= true;
-    }
-    if (event.key === "ArrowDown") {
-        moveDown= true;
-    }
-})
-
-// Check if the button is RELEASED
-document.addEventListener("keyup", function(event) {
-    if (event.key === "ArrowLeft") {
-        moveLeft= false;
-    }
-    if (event.key === "ArrowRight") {
-        moveRight= false;
-    }
-    if (event.key === "ArrowUp") {
-        moveUp= false;
-    }
-    if (event.key === "ArrowDown") {
-        moveDown= false;
-    }
-})
-
-
-function update() {
-    if (moveLeft && dog.x > 0) {
+    if (event.key === "ArrowLeft" && dog.x > 0) {
         dog.x -= velocity;
     }
-    if (moveRight && dog.x < canvas.width - dog.width) {
+    if (event.key === "ArrowRight" && dog.x < canvas.width - dog.width) {
         dog.x += velocity;
     }
-    if (moveUp && dog.y > 0) {
-        dog.y -= velocity;
-    }
-    if (moveDown && dog.y < canvas.height - dog.height) {
-        dog.y += velocity;
-    }
+
+})
+
+function update() {
     biscuits.forEach(biscuit => {
         biscuit.y += biscuitVelocity;
     })
