@@ -42,7 +42,7 @@ const oliveImage = new Image();
 oliveImage.src = "images/olive50.png";
 const sausageImage = new Image();
 sausageImage.src = "images/sausage50.png";
-const backgroundMusic = new Audio("music/biscuithunt.mp3");
+// const backgroundMusic = new Audio("music/biscuithunt.mp3");
 const barkSound = new Audio("sounds/bark.wav");
 const wrongSound = new Audio("sounds/wrong.wav");
 const lostSound = new Audio("sounds/lost.wav");
@@ -54,6 +54,7 @@ let dog = {
 };
 
 window.onload = function() {
+    const backgroundMusic = new Audio("music/biscuithunt.mp3");
     backgroundMusic.autoplay = true;
     backgroundMusic.loop = true;
     gameLoop();
