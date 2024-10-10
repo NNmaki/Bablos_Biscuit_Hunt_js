@@ -207,7 +207,7 @@ function update() {
 };
 
 function gameLoop() {
-    if (!over) {
+     if (!over) {
         backgroundMusic.autoplay = true;
         backgroundMusic.loop = true;
         update();
@@ -216,10 +216,11 @@ function gameLoop() {
     }
 };
 
-gameLoop();
-setInterval(spawnBiscuit, 1000);
-setInterval(spawnCarrot, 3000);
-setInterval(spawnOlive, 4500);
-setInterval(spawnSausage, 5000);
-setInterval(incTimer, 1000);
-
+window.onload = function() {
+    gameLoop();
+    setInterval(spawnBiscuit, 1000);
+    setInterval(spawnCarrot, 3000);
+    setInterval(spawnOlive, 4500);
+    setInterval(spawnSausage, 5000);
+    setInterval(incTimer, 1000);
+};
