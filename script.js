@@ -53,6 +53,17 @@ let dog = {
     x: canvas.width / 2 -25, y: canvas.height -100, width: 50, height: 50
 };
 
+window.onload = function() {
+    backgroundMusic.autoplay = true;
+    backgroundMusic.loop = true;
+    gameLoop();
+    setInterval(spawnBiscuit, 1000);
+    setInterval(spawnCarrot, 3000);
+    setInterval(spawnOlive, 4500);
+    setInterval(spawnSausage, 5000);
+    setInterval(incTimer, 1000);
+};
+
 // Draw elements
 function draw() {
     ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
@@ -208,19 +219,10 @@ function update() {
 
 function gameLoop() {
      if (!over) {
-        backgroundMusic.autoplay = true;
-        backgroundMusic.loop = true;
         update();
         draw();
         requestAnimationFrame(gameLoop);
     }
 };
 
-window.onload = function() {
-    gameLoop();
-    setInterval(spawnBiscuit, 1000);
-    setInterval(spawnCarrot, 3000);
-    setInterval(spawnOlive, 4500);
-    setInterval(spawnSausage, 5000);
-    setInterval(incTimer, 1000);
-};
+
