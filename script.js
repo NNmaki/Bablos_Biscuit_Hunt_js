@@ -42,7 +42,9 @@ const oliveImage = new Image();
 oliveImage.src = "images/olive50.png";
 const sausageImage = new Image();
 sausageImage.src = "images/sausage50.png";
-// const backgroundMusic = new Audio("music/biscuithunt.mp3");
+
+const backgroundMusic = new Audio("music/biscuithunt.mp3");
+
 const barkSound = new Audio("sounds/bark.wav");
 const wrongSound = new Audio("sounds/wrong.wav");
 const lostSound = new Audio("sounds/lost.wav");
@@ -54,9 +56,6 @@ let dog = {
 };
 
 window.onload = function() {
-    const backgroundMusic = new Audio("music/biscuithunt.mp3");
-    backgroundMusic.autoplay = true;
-    backgroundMusic.loop = true;
     gameLoop();
     setInterval(spawnBiscuit, 1000);
     setInterval(spawnCarrot, 3000);
@@ -131,7 +130,10 @@ document.addEventListener("keydown", function(event) {
     if (event.key === "ArrowDown") {
         moveDown= true;
     }
-})
+    if (event.key === " " && over) {
+        restartGame();
+    }
+});
 
 // Check if the button is RELEASED
 document.addEventListener("keyup", function(event) {
@@ -147,7 +149,30 @@ document.addEventListener("keyup", function(event) {
     if (event.key === "ArrowDown") {
         moveDown= false;
     }
-})
+});
+
+function drawGameOver() {
+    ctx.fillStyle = "white";
+    ctx.font = "60px Arial Bold";
+    ctx.fillText("Game Over", canvas.width / 2 -150, canvas.height / 2);
+    ctx.font = "30px Arial Bold";
+    ctx.fillText("Press SPACE to restart", canvas.width / 2 -150, canvas.height / 2 + 50)
+};
+
+function restartGame() {
+    biscuits = [];
+    carrots = [];
+    olives = [];
+    sausages = [];
+    score = 0;
+    lives = 5;
+    over = false;
+    timer = 0;
+    dog = { x: canvas.width / 2 -25, y: canvas.height -100, width: 50, height: 50};
+    backgroundMusic.currentTime = 0;
+    backgroundMusic.play();
+    gameLoop();
+};
 
 function update() {
     if (moveLeft && dog.x > 0) {
@@ -205,14 +230,14 @@ function update() {
         if (isColliding(dog, sausage)) {
             sausages = sausages.filter(b => b !== sausage);
             over= true;
-            backgroundMusic.autoplay = false;
+            backgroundMusic.pause();
             overSound.play();
             };
     })
 
     if (lives < 1){
         over= true;
-        backgroundMusic.autoplay = false;
+        backgroundMusic.pause();
         overSound.play();
         
     }
@@ -220,9 +245,13 @@ function update() {
 
 function gameLoop() {
      if (!over) {
+        backgroundMusic.autoplay = true;
         update();
         draw();
         requestAnimationFrame(gameLoop);
+    } else {
+        draw();
+        drawGameOver();
     }
 };
 
