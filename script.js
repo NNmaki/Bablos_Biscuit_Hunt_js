@@ -26,12 +26,18 @@ let moveUp = false;
 let moveDown = false;
 let score = 0;
 let lives = 5;
+
 let over = false;
+let running = false;
 let timer = 0;
 
 // Load images and media
 const backgroundImage = new Image();
 backgroundImage.src = "images/background2.png";
+
+const menubackgroundImage = new Image();
+menubackgroundImage.src = "images/menu_background.png";
+
 const biscuitImage = new Image();
 biscuitImage.src = "images/biscuit50.png";
 const dogImage = new Image();
@@ -88,19 +94,31 @@ function draw() {
 }
 
 function spawnBiscuit () {
-    biscuits.push({ x: Math.random() * canvas.width - 50, y: 0});
+    const biscuitWidth = 50;
+    const xPosition = Math.random() * (canvas.width - biscuitWidth);
+    biscuits.push({ x: xPosition, y: 0 });
+    // biscuits.push({ x: Math.random() * canvas.width, y: 0});
 };
 
 function spawnCarrot () {
-    carrots.push({ x: Math.random() * canvas.width - 50, y: 0});
+    const carrotWidth = 50;
+    const xPosition = Math.random() * (canvas.width - carrotWidth);
+    carrots.push({ x: xPosition, y: 0 });
+    // carrots.push({ x: Math.random() * canvas.width, y: 0});
 };
 
 function spawnOlive () {
-    olives.push({ x: Math.random() * canvas.width - 50, y: 0});
+    const oliveWidth = 50;
+    const xPosition = Math.random() * (canvas.width - oliveWidth);
+    olives.push({ x: xPosition, y: 0 });
+    // olives.push({ x: Math.random() * canvas.width, y: 0});
 };
 
 function spawnSausage () {
-    sausages.push({ x: Math.random() * canvas.width - 50, y: 0});
+    const sausageWidth = 50;
+    const xPosition = Math.random() * (canvas.width - sausageWidth);
+    sausages.push({ x: xPosition, y: 0 });
+    // sausages.push({ x: Math.random() * canvas.width, y: 0});
 };
 
 function incTimer () {
@@ -153,10 +171,17 @@ document.addEventListener("keyup", function(event) {
 
 function drawGameOver() {
     ctx.fillStyle = "white";
-    ctx.font = "60px Arial Bold";
+    ctx.font = "bold 60px arial";
     ctx.fillText("Game Over", canvas.width / 2 -150, canvas.height / 2);
-    ctx.font = "30px Arial Bold";
+    ctx.font = "bold 30px arial";
     ctx.fillText("Press SPACE to restart", canvas.width / 2 -150, canvas.height / 2 + 50)
+};
+
+function startScreen() {
+    ctx.fillStyle = "white";
+    ctx.font = "bold 60px arial";
+    ctx.fillText("Start Game", canvas.width / 2 -150, canvas.height / 2);
+
 };
 
 function restartGame() {
@@ -244,7 +269,14 @@ function update() {
 };
 
 function gameLoop() {
-     if (!over) {
+
+    if (running = false) {
+        startScreen();
+    }
+
+
+
+    if (!over && running) {
         backgroundMusic.autoplay = true;
         update();
         draw();
