@@ -259,16 +259,27 @@ function update() {
     }
 };
 
+
 function gameLoop() {
-     if (!over) {
-        backgroundMusic.autoplay = true;
-        update();
-        draw();
-        requestAnimationFrame(gameLoop);
-    } else {
-        draw();
-        drawGameOver();
-    }
+    if (!over) {
+       backgroundMusic.autoplay = true;
+       update();
+       draw();
+       requestAnimationFrame(gameLoop);
+   }
 };
+
+
+// function gameLoop() {
+//      if (!over) {
+//         backgroundMusic.autoplay = true;
+//         update();
+//         draw();
+//         requestAnimationFrame(gameLoop);
+//     } else {
+//         draw();
+//         drawGameOver();
+//     }
+// };
 
 
