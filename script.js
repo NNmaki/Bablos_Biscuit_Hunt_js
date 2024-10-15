@@ -4,7 +4,7 @@ const canvas = document.getElementById("pelikentta");
 const ctx = canvas.getContext("2d");
 
 canvas.width = 600;
-canvas.height = 800;
+canvas.height = 700;
 
 let biscuits = [];
 let biscuitVelocity = 2;
@@ -26,7 +26,6 @@ let gameRunning = false;
 let gameOver = false;
 let gameStart = true; 
 let gameInst = false;
-
 let animationFrameId;
 
 // Load images and media
@@ -89,10 +88,10 @@ function draw() {
         ctx.drawImage(sausageImage, sausage.x, sausage.y, 50,50);
     });
     ctx.fillStyle = "white";
-    ctx.font = "30px Arial";
-    ctx.fillText("Score: " + score, 10, 40);
+    ctx.font = "bold 22px Arial";
+    ctx.fillText("Score: " + score, 50, 40);
     ctx.fillText("Lives: " + lives, canvas.width / 2, 40);
-    ctx.fillText("Time: " + timer, canvas.width - 115, 40);
+    ctx.fillText("Time: " + timer, canvas.width - 70, 40);
 }
 
 function spawnBiscuit () {
@@ -225,9 +224,9 @@ function drawGameOver() {
 function startScreen() {
     ctx.fillStyle = "white";
     ctx.drawImage(menubackgroundImage, 0, 0, canvas.width, canvas.height);
-    ctx.drawImage(buttonplayImage, (canvas.width / 2) - (buttonplayImage.width / 2), canvas.height / 2  - 100);
-    ctx.drawImage(buttoninstImage, 20, canvas.height / 2 +50);
-    ctx.drawImage(buttonquitImage, (canvas.width) - (buttonquitImage.width) - 20, canvas.height / 2 + 50);
+    ctx.drawImage(buttonplayImage, (canvas.width / 2) - (buttonplayImage.width / 2), canvas.height / 2  - 120);
+    ctx.drawImage(buttoninstImage, 20, canvas.height / 2 + 30);
+    ctx.drawImage(buttonquitImage, (canvas.width) - (buttonquitImage.width) - 20, canvas.height / 2 + 30);
     ctx.font = "bold 60px arial";
     ctx.textAlign = "center";
     menuMusic.play();
