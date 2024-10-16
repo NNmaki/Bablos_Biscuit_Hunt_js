@@ -11,6 +11,8 @@ Just a small practice game.
 
 A practice game made using JavaScript. I originally published the game made with Python. To gain experience in web development and JavaScript programming, I have now also made the game in JavaScript so it can be run in a web browser.
 
+Python version here: https://github.com/NNmaki/Bablos_Biscuit_Hunt
+
 ## 🎯 Screenshots
 
 
