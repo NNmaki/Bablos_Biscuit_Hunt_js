@@ -1,39 +1,37 @@
 
+![bablos_biscuit_hunt_online_cover](https://github.com/user-attachments/assets/8da05a7e-611d-4b75-8906-e72f92c88dde)
 
-
-
-![bablos_dog_hunt_cover_github](https://github.com/user-attachments/assets/6bb17d0f-897e-4c43-bd4b-38b524500de0)
 
 
 # Bablos Biscuit Hunt! - Java Script game
 
 ## 💡 Introduction
 
-Just a small practice with Python and Pygame -library.
+Just a small practice game.
 
-The game was initially developed using the PyGame Zero -library, which is a beginner-friendly way to get into game development with Python. This was made possible by some easy-to-use features and by running the program without a traditional game loop. However, at some point, the limitations of PyGame Zero became apparent, so the game switched to using the actual PyGame library, which is a very popular game development module.
+A practice game made using JavaScript. I originally published the game made with Python. To gain experience in web development and JavaScript programming, I have now also made the game in JavaScript so it can be run in a web browser.
 
 ## 🎯 Screenshots
 
 
 ## 🔥 How to play?
 
+Just clone this repository or download and extract zip-file, and run html-file on your browser.
+
+Looking for possibility to bublish this game on web for playing online.
 
 
 ## 🔧 Tech talk
 
-Depencies and libraries
-- <b>Python3</b> -Main language for code, version 3.12.3
-- <b>Pygame</b> -Library and set of modules for writing game, version 2.5.2
-- <b>OS -module</b> -For operating system dependent functionality (virtual path for game assets)
-- <b>SYS -module</b> -Allows to convert game to standalone executable -file with Pyinstaller
-- <b>Random -module</b> -Enables object spawning at random position
-- <b>Other tools</b> -Linux Mint, Visual Studio Code, Git & Github and Gimp
+Used
+- <b>Java Script</b> -Main language for functionality
+- <b>HTML & CSS</b> -Web frame for layout
+- <b>Other tools</b> -Linux/Ubuntu, Visual Studio Code, Git & Github and Gimp
 
 ## 🦋 Story and game 
 ### Story
 
-We have a beloved dog named Bablo. Bablo is a Labrador Retriever, and she loves biscuits like other labs do. That inspired me to create a simple game in Python, which was an ideal project for learning Python and Pygame.
+We have a beloved dog named Bablo. Bablo is a Labrador Retriever, and she loves biscuits like other labs do. That inspired me to create this simple game. I first created the game using the Python language, but to get more practice, I have now also made it in JavaScript, which makes playing online easier to implement.
 
 ### Game
 
@@ -47,6 +45,9 @@ And it's been said that there are also some poisoned sausages around. If you acc
 
 Game controller is keyboard. Move player with Left, Right, Up and Down arrow keys. Quit to starting screen by hitting ESC -key, and quit game by pressing Q-key.
 Collect biscuits and avoid letting them to fall out. Avoid carrots, olives and poisoned sausages.
+
+![instructions_github](https://github.com/user-attachments/assets/f41d131b-7be3-46e6-a592-54013f78f2e6)
+
 
 
 
