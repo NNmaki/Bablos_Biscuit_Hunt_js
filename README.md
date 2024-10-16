@@ -15,6 +15,7 @@ Python version here: https://github.com/NNmaki/Bablos_Biscuit_Hunt
 
 ## 🎯 Screenshots
 
+![bablos_biscuit_hunt_online_screenshots](https://github.com/user-attachments/assets/2574f72b-142e-4706-99d2-72fc4cedca25)
 
 ## 🔥 How to play?
 
