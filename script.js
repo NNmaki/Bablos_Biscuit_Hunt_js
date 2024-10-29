@@ -1,4 +1,11 @@
 
+// Bablos Biscuit Hunt - Small practice with Java Script
+// By Niko Nmaki 2024
+
+// https://github.com/NNmaki/Bablos_Biscuit_Hunt_js
+
+// Inspired By @bablo_thedog - https://www.instagram.com/bablo_thedog/
+
 
 const canvas = document.getElementById("pelikentta");
 const ctx = canvas.getContext("2d");
