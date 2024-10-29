@@ -7,6 +7,8 @@
 
 ## 💡 Introduction
 
+https://nnmaki.x10.mx/BablosBiscuitHunt/
+
 Just a small practice game.
 
 A practice game made using JavaScript. I originally published the game made with Python. To gain experience in web development and JavaScript programming, I have now also made the game in JavaScript so it can be run in a web browser.
@@ -15,13 +17,14 @@ Python version here: https://github.com/NNmaki/Bablos_Biscuit_Hunt
 
 ## 🎯 Screenshots
 
-![bablos_biscuit_hunt_online_screenshots](https://github.com/user-attachments/assets/2574f72b-142e-4706-99d2-72fc4cedca25)
+![screenshots](https://github.com/user-attachments/assets/3d76877d-f62f-45d8-bcac-d7a3e28f1ede)
+
 
 ## 🔥 How to play?
 
 Just clone this repository or download and extract zip-file, and run html-file on your browser.
 
-Looking for possibility to bublish this game on web for playing online.
+Play online: https://nnmaki.x10.mx/BablosBiscuitHunt/
 
 
 ## 🔧 Tech talk
