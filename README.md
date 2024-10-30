@@ -7,7 +7,7 @@
 
 ## 💡 Introduction
 
-https://nnmaki.x10.mx/BablosBiscuitHunt/
+Hosted in: https://nnmaki.x10.mx/BablosBiscuitHunt/
 
 Just a small practice game.
 
