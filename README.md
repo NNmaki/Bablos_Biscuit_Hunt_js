@@ -7,7 +7,7 @@
 
 ## 💡 Introduction
 
-Hosted in: https://nnmaki.x10.mx/BablosBiscuitHunt/
+Hosted in: https://nnmaki.com/biscuithunt/
 
 Just a small practice game.
 
@@ -24,7 +24,7 @@ Python version here: https://github.com/NNmaki/Bablos_Biscuit_Hunt
 
 Just clone this repository or download and extract zip-file, and run html-file on your browser.
 
-Play online: https://nnmaki.x10.mx/BablosBiscuitHunt/
+Play online: https://nnmaki.com/biscuithunt/
 
 
 ## 🔧 Tech talk
